@@ -18,7 +18,9 @@ function setCurrentMode(newMode) {
     currentMode = newMode;
 }
 
-
+let mousedown = false;
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
 
 function createGrid(rows) {
@@ -28,8 +30,8 @@ function createGrid(rows) {
         row.classList.add('row');
         for (let x=1; x <=rows; x++) {
             let cell = document.createElement('div');
-            cell.addEventListener('mousedown', changeColor);
             cell.addEventListener('mouseover', changeColor);
+            cell.addEventListener('mousedown', changeColor);
             cell.classList.add('cell');
             row.appendChild(cell);
         }
@@ -39,7 +41,7 @@ function createGrid(rows) {
 }
 
 function changeColor(e) {
-    if (e.type === 'mouseover' && !'mousedown') {return}
+    if (e.type === 'mouseover' && !mouseDown) return
     if (currentMode === 'color') {
         e.target.style.backgroundColor = currentColor;
     } else if (currentMode === 'eraser') {
