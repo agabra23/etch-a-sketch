@@ -1,0 +1,23 @@
+* {
+    border: 1px solid black;
+}
+
+.canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 800px;
+    height: 800px;
+    margin: auto;
+}
+
+.row {
+   
+    flex: 1;    
+    display: flex;
+    justify-content: center;
+}
+
+.cell {
+    flex: 1;
+}
