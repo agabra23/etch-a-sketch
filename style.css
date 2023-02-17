@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 1px solid black;
-}
+} */
 
 .canvas {
     display: flex;
@@ -9,6 +9,7 @@
     width: 800px;
     height: 800px;
     margin: auto;
+    border: 1px solid black;
 }
 
 .row {
