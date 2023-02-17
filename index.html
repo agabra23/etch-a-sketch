@@ -9,11 +9,13 @@
     <link rel="shortcut icon" type="image/jpg" href="./pencil.jpg">
 </head>
 <body>
-    <div class="canvas">
+    <div id="canvas">
     </div>
-    <button class="marker">Marker</button>
-    <button class="eraser">Eraser</button>
-    <button class="clear">Clear</button>
+    <button id="markerBtn">Marker</button>
+    <button id="eraserBtn">Eraser</button>
+    <button id="clearBtn">Clear</button>
+    <input type="range" value="16" min="10" max="64" id="sizeSlider" />
+    <span id="sizeValue">16 x 16</span>
 </body>
 <script src="./script.js"></script>
 </html>

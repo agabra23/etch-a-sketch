@@ -16,20 +16,34 @@ function setCurrentSize(newSize) {
 
 function setCurrentMode(newMode) {
     currentMode = newMode;
+    canvas.classList.remove('markerMode');
+    canvas.classList.remove('eraserMode');
+    switch(currentMode) {
+        case 'marker':
+            canvas.classList.add('markerMode');
+            break;
+        case 'eraser':
+            canvas.classList.add('eraserMode');
+            break;
+    }
 }
 
 let mousedown = false;
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
-const canvas = document.querySelector('.canvas');
-const clearBtn = document.querySelector('.clear');
-const colorBtn = document.querySelector('.marker');
-const eraserBtn = document.querySelector('.eraser');
+const canvas = document.querySelector('#canvas');
+const clearBtn = document.querySelector('#clearBtn');
+const colorBtn = document.querySelector('#markerBtn');
+const eraserBtn = document.querySelector('#eraserBtn');
+const sizeSlider = document.querySelector('#sizeSlider');
+const sizeValue = document.querySelector('#sizeValue');
 
-clearBtn.onclick = () => clear();
+clearBtn.onclick = () => resetGrid();
 colorBtn.onclick = () => setCurrentMode('marker');
 eraserBtn.onclick = () => setCurrentMode('eraser');
+sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
+sizeSlider.onchange = (e) => changeSize(e.target.value);
 
 function createGrid(rows) {
     for (let i=0; i < rows; i++) {
@@ -47,6 +61,20 @@ function createGrid(rows) {
     
 }
 
+function changeSize(value) {
+    setCurrentSize(value);
+    resetGrid();
+}
+
+function updateSizeValue(value) {
+    sizeValue.innerHTML = `${value} x ${value}`;
+}
+
+function resetGrid() {
+    clear();
+    createGrid(currentSize);
+}
+
 function changeColor(e) {
     if (e.type === 'mouseover' && !mouseDown) return
     if (currentMode === 'marker') {
@@ -57,10 +85,7 @@ function changeColor(e) {
 }
 
 function clear() {
-    let cells = canvas.querySelectorAll('.cell');
-    cells.forEach((cell) => {
-        cell.style.backgroundColor = '#fefefe';
-    });
+    canvas.innerHTML = '';
 }
 
 

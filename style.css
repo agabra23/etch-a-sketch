@@ -2,7 +2,7 @@
     border: 1px solid black;
 } */
 
-.canvas {
+#canvas {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -10,6 +10,14 @@
     height: 800px;
     margin: auto;
     border: 1px solid black;
+}
+
+#canvas.markerMode {
+    cursor: crosshair;
+}
+
+#canvas.eraserMode {
+    cursor: not-allowed;
 }
 
 .row {
