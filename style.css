@@ -111,6 +111,7 @@ input {
     height: 50px;
     margin: 15px;
     color: var(--primary-dark);
+    background-color: var(--primary-light);
     font-size: 16px;
     border: 1px solid var(--primary-dark);
     border-radius: 8px;
