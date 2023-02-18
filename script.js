@@ -40,6 +40,8 @@ const colorBtn = document.querySelector('#markerBtn');
 const eraserBtn = document.querySelector('#eraserBtn');
 const sizeSlider = document.querySelector('#sizeSlider');
 const sizeValue = document.querySelector('#sizeValue');
+const year = document.querySelector('#year');
+let currentYear = new Date().getFullYear();
 
 colorPicker.onchange = (e) => setCurrentColor(e.target.value);
 clearBtn.onclick = () => resetGrid();
@@ -47,6 +49,7 @@ colorBtn.onclick = () => setCurrentMode('marker');
 eraserBtn.onclick = () => setCurrentMode('eraser');
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
+year.innerHTML = currentYear;
 
 function createGrid(rows) {
     for (let i=0; i < rows; i++) {
