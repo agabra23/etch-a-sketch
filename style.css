@@ -1,9 +1,39 @@
-/* * {
-    border: 1px solid black;
-} */
+* {
+    border: 1px solid red;
+}
 
 * ::before::after{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+#pageTitle {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+#controls {
+    /* align-self: stretch; */
+    display: flex;
+    flex-direction: column;
 }
 
 #canvas {
@@ -33,4 +63,20 @@
 
 .cell {
     flex: 1;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    margin: 15px;
+}
+
+ button,
+ #controls p {
+    margin: 15px;
+}
+
+#controls p {
+    text-align: center;
+    margin-bottom: 5px;
 }
