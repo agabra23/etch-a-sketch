@@ -42,6 +42,7 @@ const sizeSlider = document.querySelector('#sizeSlider');
 const sizeValue = document.querySelector('#sizeValue');
 const year = document.querySelector('#year');
 let currentYear = new Date().getFullYear();
+const icon = document.getElementById('github');
 
 colorPicker.onchange = (e) => setCurrentColor(e.target.value);
 clearBtn.onclick = () => resetGrid();
@@ -49,6 +50,8 @@ colorBtn.onclick = () => setCurrentMode('marker');
 eraserBtn.onclick = () => setCurrentMode('eraser');
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
+icon.onmouseover = () => icon.classList.add('fa-bounce');
+icon.onmouseout = () => icon.classList.remove('fa-bounce');
 year.innerHTML = currentYear;
 
 function createGrid(rows) {

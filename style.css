@@ -150,6 +150,7 @@ input {
 
 #footerText {
     margin: 25px;
+    margin-right: 10px;
 }
 
 input[type='range'] {
@@ -207,4 +208,9 @@ input[type='color']::-webkit-color-swatch-wrapper {
 input[type='color']:active {
     transition: transform 0.05s ease-in-out;
     transform: scale(1);
+}
+
+#github {
+    color: var(--primary-dark);
+
 }
