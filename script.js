@@ -15,6 +15,7 @@ function setCurrentSize(newSize) {
 }
 
 function setCurrentMode(newMode) {
+    activateButton(newMode);
     currentMode = newMode;
     canvas.classList.remove('markerMode');
     canvas.classList.remove('eraserMode');
@@ -33,12 +34,14 @@ document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
 const canvas = document.querySelector('#canvas');
+const colorPicker = document.querySelector('#colorPicker');
 const clearBtn = document.querySelector('#clearBtn');
 const colorBtn = document.querySelector('#markerBtn');
 const eraserBtn = document.querySelector('#eraserBtn');
 const sizeSlider = document.querySelector('#sizeSlider');
 const sizeValue = document.querySelector('#sizeValue');
 
+colorPicker.onchange = (e) => setCurrentColor(e.target.value);
 clearBtn.onclick = () => resetGrid();
 colorBtn.onclick = () => setCurrentMode('marker');
 eraserBtn.onclick = () => setCurrentMode('eraser');
@@ -80,7 +83,21 @@ function changeColor(e) {
     if (currentMode === 'marker') {
         e.target.style.backgroundColor = currentColor;
     } else if (currentMode === 'eraser') {
-        e.target.style.backgroundColor = '#fefefe'
+        e.target.style.backgroundColor = '#ededed'
+    }
+}
+
+function activateButton(newMode) {
+    if (currentMode === 'marker') {
+        colorBtn.classList.remove('active');
+    } else if (currentMode === 'eraser') {
+        eraserBtn.classList.remove('active');
+    }
+
+    if (newMode === 'marker') {
+        colorBtn.classList.add('active');
+    } else if (newMode === 'eraser') {
+        eraserBtn.classList.add('active');
     }
 }
 
@@ -91,6 +108,7 @@ function clear() {
 function init() {
     window.onload = createGrid(DEFAULT_SIZE);
     setCurrentMode(DEFAULT_MODE);
+    colorPicker.value = DEFAULT_COLOR;
 }
 
 init();
