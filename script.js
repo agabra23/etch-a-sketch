@@ -88,5 +88,9 @@ function clear() {
     canvas.innerHTML = '';
 }
 
+function init() {
+    window.onload = createGrid(DEFAULT_SIZE);
+    setCurrentMode(DEFAULT_MODE);
+}
 
-window.onload = createGrid(DEFAULT_SIZE);
+init();

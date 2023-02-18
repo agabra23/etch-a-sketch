@@ -2,6 +2,10 @@
     border: 1px solid black;
 } */
 
+* ::before::after{
+    box-sizing: border-box;
+}
+
 #canvas {
     display: flex;
     flex-direction: column;
